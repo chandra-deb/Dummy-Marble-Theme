@@ -12,20 +12,20 @@ get_theme_file_uri(
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
                                 <div class="slider-text-inner">
-                                    <h1>Intuitive <strong></strong> is How Give We the User New Superpowers</h1>
-                                    <h2>Free html5 templates Made by <a href="http://freehtml5.co/"
-                                            target="_blank">freehtml5.co</a></h2>
+                                    <h1><?php echo get_bloginfo( 'name' ) ?> </h1>
+                                    <h2><?php echo get_bloginfo( 'description'
+) ?></h2>
                                     <p><a class="btn btn-primary btn-demo popup-vimeo"
                                             href="https://vimeo.com/channels/staffpicks/93951774"> <i
-                                                class="icon-monitor"></i> Live Preview</a> <a
-                                            class="btn btn-primary btn-learn">Learn More<i
+                                                class="icon-monitor"></i> Portfolio</a> <a
+                                            class="btn btn-primary btn-learn">Contact<i
                                                 class="icon-arrow-right3"></i></a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li style="background-image: url(<?php echo
+                <!-- <li style="background-image: url(<?php echo
 get_theme_file_uri(
     '/images/img_bg_2.jpg' );
 ?>);">
@@ -90,7 +90,7 @@ get_theme_file_uri(
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </div>
     </aside>
