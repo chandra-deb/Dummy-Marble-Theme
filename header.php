@@ -90,8 +90,8 @@
             <h1 id="fh5co-logo"><a href="<?php echo site_url() ?>">Marble</a></h1>
             <nav id="fh5co-main-menu" role="navigation">
                 <ul>
-                    <li class="fh5co-active"><a href="index.html">Home</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li class="fh5co-active"><a href="<?php echo site_url() ?>">Home</a></li>
+                    <li><a href="<?php echo site_url( '/blog' ) ?>">Blog</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
