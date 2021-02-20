@@ -90,12 +90,24 @@
             <h1 id="fh5co-logo"><a href="<?php echo site_url() ?>">Marble</a></h1>
             <nav id="fh5co-main-menu" role="navigation">
                 <ul>
-                    <li class="fh5co-active"><a href="<?php echo site_url() ?>">Home</a></li>
-                    <li><a href="<?php echo site_url( '/blog' ) ?>">Blog</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li <?php echo is_front_page() ?
+'class="fh5co-active"e' : '' ?>><a href="<?php echo site_url() ?>">Home</a></li>
+                    <li <?php
+if ( get_query_var( 'pagename' ) == 'blog' ) {
+    echo 'class="fh5co-active"e';
+} elseif ( is_single() ) {
+    echo 'class="fh5co-active"e';
+}
+?>><a href="<?php echo site_url( '/blog' ) ?>">Blog</a></li>
+                    <li <?php echo get_query_var( 'pagename' ) === 'portfolio'
+    ?
+'class="fh5co-active"e' : '' ?>><a href="<?php echo site_url( '/portfolio' ) ?>">Portfolio</a></li>
+                    <li <?php echo get_query_var( 'pagename' ) === 'about' ?
+'class="fh5co-active"e' : '' ?>><a href="<?php echo site_url( '/about' ) ?>">About</a></li>
+                    <li <?php echo get_query_var( 'pagename' ) === 'contact' ?
+'class="fh5co-active"e' : '' ?>><a href="<?php echo site_url( '/contact' ) ?>">Contact</a></li>
                 </ul>
+                <!-- <?php echo wp_page_menu() ?> -->
             </nav>
 
             <div class="fh5co-footer">

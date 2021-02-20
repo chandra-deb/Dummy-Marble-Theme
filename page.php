@@ -1,1 +1,2 @@
-<h1>I am from Page.php</h1>
+<?php get_header()?>
+<?php get_footer()?>
