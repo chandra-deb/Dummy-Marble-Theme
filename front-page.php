@@ -1,11 +1,14 @@
-<?get_header()?>
+<?php get_header();?>
+
+
+
+
 <div id="fh5co-main">
     <aside id="fh5co-hero" class="js-fullheight">
         <div class="flexslider js-fullheight">
             <ul class="slides">
-                <li style="background-image: url(<?php echo
-get_theme_file_uri(
-    '/images/img_bg_1.jpg' );
+                <li style="background-image: url(<?php the_post_thumbnail_url()
+;
 ?>);">
                     <div class="overlay"></div>
                     <div class="container-fluid">
