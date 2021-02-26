@@ -98,13 +98,14 @@ get_theme_file_uri(
     <div class="fh5co-narrow-content">
         <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Services</h2>
         <div class="row">
+
             <div class="col-md-6">
                 <div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
                     <div class="fh5co-icon">
                         <i class="icon-settings"></i>
                     </div>
                     <div class="fh5co-text">
-                        <h3>Strategy</h3>
+                        <h3><?php the_title()?></h3>
                         <p>Far far away, behind the word mountains, far from the countries Vokalia and
                             Consonantia, there live the blind texts. </p>
                     </div>
