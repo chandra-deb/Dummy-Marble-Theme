@@ -1,8 +1,6 @@
 <?php get_header();?>
 
 
-
-
 <div id="fh5co-main">
     <aside id="fh5co-hero" class="js-fullheight">
         <div class="flexslider js-fullheight">
@@ -16,7 +14,8 @@
                             <div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
                                 <div class="slider-text-inner">
                                     <h1><?php echo get_bloginfo( 'name' ) ?> </h1>
-                                    <h2><?php echo get_bloginfo( 'description'
+                                    <h2><?php echo get_bloginfo(
+    'description'
 ) ?></h2>
                                     <p><a class="btn btn-primary btn-demo popup-vimeo"
                                             href="https://vimeo.com/channels/staffpicks/93951774"> <i
@@ -30,7 +29,8 @@
                 </li>
                 <!-- <li style="background-image: url(<?php echo
 get_theme_file_uri(
-    '/images/img_bg_2.jpg' );
+    '/images/img_bg_2.jpg'
+);
 ?>);">
                     <div class="overlay"></div>
                     <div class="container-fluid">
@@ -52,7 +52,8 @@ get_theme_file_uri(
                 </li>
                 <li style="background-image: url(<?php echo
 get_theme_file_uri(
-    '/images/img_bg_3.jpg' );
+    '/images/img_bg_3.jpg'
+);
 ?>);">
                     <div class="overlay"></div>
                     <div class="container-fluid">
@@ -74,7 +75,8 @@ get_theme_file_uri(
                 </li>
                 <li style="background-image: url(<?php echo
 get_theme_file_uri(
-    '/images/img_bg_2.jpg' );
+    '/images/img_bg_2.jpg'
+);
 ?>);">
                     <div class="overlay"></div>
                     <div class="container-fluid">
@@ -102,6 +104,28 @@ get_theme_file_uri(
         <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Services</h2>
         <div class="row">
 
+
+            <?php
+$args      = ['post_type' => 'service'];
+$the_query = new WP_Query( $args );
+?>
+            <?php if ( $the_query->have_posts() ): ?>
+            <?php while ( $the_query->have_posts() ): $the_query->the_post(
+    );?>
+            <div class="col-md-6">
+                <div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
+                    <div class="fh5co-icon">
+                        <i class="<?php the_field( 'service_icon' )?>"></i>
+                    </div>
+                    <div class="fh5co-text">
+                        <h3><?php the_title()?></h3>
+                        <?php the_content()?>
+                    </div>
+                </div>
+            </div>
+            <?php endwhile;
+wp_reset_postdata();?>
+            <?php else: ?>
             <div class="col-md-6">
                 <div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
                     <div class="fh5co-icon">
@@ -126,41 +150,46 @@ get_theme_file_uri(
                     </div>
                 </div>
             </div>
+            <?php endif;?>
 
-            <div class="col-md-6">
-                <div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-                    <div class="fh5co-icon">
-                        <i class="icon-paperplane"></i>
-                    </div>
-                    <div class="fh5co-text">
-                        <h3>Direction</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-                    <div class="fh5co-icon">
-                        <i class="icon-params"></i>
-                    </div>
-                    <div class="fh5co-text">
-                        <h3>Expertise</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="fh5co-narrow-content">
         <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Recent Blog</h2>
         <div class="row row-bottom-padded-md">
+
+
+            <?php
+$args      = ['post_type' => 'post', 'posts_per_page' => 4];
+$the_query = new WP_Query( $args );
+?>
+            <?php if ( $the_query->have_posts() ): ?>
+            <?php while ( $the_query->have_posts() ): $the_query->the_post();?>
+            <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+                <div class="blog-entry">
+                    <a href="<?php the_permalink()?>
+			                                              " class="blog-img"><?php
+    the_post_thumbnail( [250, 250], 'class="img-responsive"' )?></a>
+                    <div class="desc">
+                        <h3><a href="#"><?php the_title()?></a></h3>
+                        <span><small>By <?php the_author()?>
+                            </small> / <small> <?php the_category( ',' )?> </small> / <small> <i
+                                    class="icon-comment"></i>
+                                14</small></span>
+                        <p><?php the_excerpt()?></p>
+                        <a href="<?php the_permalink()?>" class="lead">Read More <i class="icon-arrow-right3"></i></a>
+                    </div>
+                </div>
+            </div>
+            <?php endwhile;
+wp_reset_postdata();?>
+            <?php else: ?>
             <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
                 <div class="blog-entry">
                     <a href="#" class="blog-img"><img src="<?php echo
 get_theme_file_uri(
-    '/images/img-1.jpg' );
+    '/images/img-1.jpg'
+);
 ?>" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
                     <div class="desc">
                         <h3><a href="#">Inspirational Website</a></h3>
@@ -176,7 +205,8 @@ get_theme_file_uri(
                 <div class="blog-entry">
                     <a href="#" class="blog-img"><img src="<?php echo
 get_theme_file_uri(
-    '/images/img-2.jpg' );
+    '/images/img-1.jpg'
+);
 ?>" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
                     <div class="desc">
                         <h3><a href="#">Inspirational Website</a></h3>
@@ -187,12 +217,16 @@ get_theme_file_uri(
                         <a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+            </div> <?php endif;?>
+
+
+
+            <!-- <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
                 <div class="blog-entry">
                     <a href="#" class="blog-img"><img src="<?php echo
 get_theme_file_uri(
-    '/images/img-3.jpg' );
+    '/images/img-2.jpg'
+);
 ?>" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
                     <div class="desc">
                         <h3><a href="#">Inspirational Website</a></h3>
@@ -203,12 +237,13 @@ get_theme_file_uri(
                         <a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+            </div> -->
+            <!-- <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
                 <div class="blog-entry">
                     <a href="#" class="blog-img"><img src="<?php echo
 get_theme_file_uri(
-    '/images/img-4.jpg' );
+    '/images/img-3.jpg'
+);
 ?>" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
                     <div class="desc">
                         <h3><a href="#">Inspirational Website</a></h3>
@@ -219,7 +254,24 @@ get_theme_file_uri(
                         <a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <!-- <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
+                <div class="blog-entry">
+                    <a href="#" class="blog-img"><img src="<?php echo
+get_theme_file_uri(
+    '/images/img-4.jpg'
+);
+?>" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
+                    <div class="desc">
+                        <h3><a href="#">Inspirational Website</a></h3>
+                        <span><small>by Admin </small> / <small> Web Design </small> / <small> <i
+                                    class="icon-comment"></i> 14</small></span>
+                        <p>Design must be functional and functionality must be translated into visual aesthetics
+                        </p>
+                        <a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </div>
 

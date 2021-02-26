@@ -19,8 +19,6 @@ function custom_post_types() {
             'singular_name' => 'Service',
 
         ],
-        'supports'  => ['title', 'editor', 'excerpt', 'custom-fields'],
+        'supports'  => ['title', 'editor'],
     ] );
 }
-
-?>
