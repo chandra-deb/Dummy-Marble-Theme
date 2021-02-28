@@ -41,7 +41,15 @@ if ( get_previous_post_link() ) {
         <?php
 }
 ?>
+        <h3 style="margin-bottom: 5px; margin-top:25px">Categories</h3>
+        <div>
+            <li style="list-style-type: none;"><a href="<?php echo site_url(
+    '/blog'
+) ?>">All</a></li>
+            <?php echo wp_list_categories( [
 
+    'style' => 'none'] ) ?>
+        </div>
     </div>
 </div>
 

@@ -3,16 +3,12 @@
     <div class="fh5co-narrow-content">
         <div class="row row-bottom-padded-md">
             <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-                <img class="img-responsive" src="<?php echo get_theme_file_uri('/images/img_bg_1.jpg') ?>"
-                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                <img class="img-responsive" src="<?php echo
+the_post_thumbnail_url() ?>" alt="">
             </div>
             <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-                <h2 class="fh5co-heading">About Company</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-                    the blind texts. Quisque sit amet efficitur nih. Interdum et malesuada fames ac ante ipsum primis in
-                    faucibus interda et malesuada parturient.</p>
-                <p>Quisque sit amet efficitur nih. Interdum et malesuada fames ac ante ipsum primis in faucibus interda
-                    et malesuada parturient.</p>
+                <h2 class="fh5co-heading"><?php the_title()?></h2>
+                <?php the_content()?>
             </div>
         </div>
     </div>
