@@ -1,7 +1,16 @@
 <?php get_header()?>
+
 <div id="fh5co-main">
     <div class="fh5co-narrow-content">
-        <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Read Our Blog</h2>
+        <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">
+            <?php if ( is_category() ) {
+    echo 'Read My Blog - ';
+    echo the_category( ',' );
+} else {
+    echo 'Read My Blog';
+}?>
+        </h2>
+
         <div class="row row-bottom-padded-md">
 
             <?php while ( have_posts() ) {
@@ -16,7 +25,7 @@ the_post_thumbnail( [250, 250], 'class="img-responsive"' )?></a>
                         <span><small>By <?php the_author()?>
                             </small> / <small> <?php the_category( ',' )?> </small> / <small> <i
                                     class="icon-comment"></i>
-                                14</small></span>
+                                <?php comments_number()?></small></span>
                         <p><?php the_excerpt()?></p>
                         <a href="<?php the_permalink()?>" class="lead">Read More <i class="icon-arrow-right3"></i></a>
                     </div>
@@ -24,9 +33,29 @@ the_post_thumbnail( [250, 250], 'class="img-responsive"' )?></a>
             </div>
             <?php
 }
-the_posts_pagination()?>
+?>
+
 
         </div>
+        <div><?php the_posts_pagination(
+    [
+        'screen_reader_text' => ' ',
+        'prev_text'          => 'Newer Posts',
+        'next_text'          => 'Older Posts',
+    ]
+);?>
+
+        </div>
+        <h3 style="margin-bottom: 5px;">Categories</h3>
+        <div>
+            <li style="list-style-type: none;"><a href="<?php echo site_url(
+    '/blog'
+) ?>">All</a></li>
+            <?php echo wp_list_categories( [
+
+    'style' => 'none'] ) ?>
+        </div>
+
     </div>
 
     <div id="get-in-touch">

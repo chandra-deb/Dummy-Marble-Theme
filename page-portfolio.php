@@ -1,105 +1,48 @@
 <?php get_header()?>
 <div id="fh5co-main">
     <div class="fh5co-narrow-content">
-        <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Portfolio</h2>
+        <h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Projects</h2>
+
+
         <div class="row row-bottom-padded-md">
+            <?php
+$args      = ['post_type' => 'project', 'posts_per_page' => 10];
+$the_query = new WP_Query( $args );
+?>
+            <?php if ( $the_query->have_posts() ): ?>
+            <?php while ( $the_query->have_posts() ): $the_query->the_post();?>
             <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-1.jpg);">
+                <a href="<?php the_permalink()?>" class="work image-popup" style="background-image: url(
+												                                           <?php
+    the_post_thumbnail_url
+        (
+    )
+    ;
+    ?>);">
                     <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Illustration</span>
+                        <h3><?php the_title()?></h3>
+                        <!-- <span><?php the_category()?></span> -->
                     </div>
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-2.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Brading</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-3.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Illustration</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-4.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Illustration</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-5.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Brading</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-6.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Illustration</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-1.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Illustration</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-2.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Brading</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-1.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Illustration</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-2.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Brading</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-3.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Illustration</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
-                <a href="#" class="work image-popup" style="background-image: url(images/img-4.jpg);">
-                    <div class="desc">
-                        <h3>Project Name</h3>
-                        <span>Illustration</span>
-                    </div>
-                </a>
-            </div>
+            <?php endwhile;
+wp_reset_postdata();?>
+            <?php else: ?>
+            <p><?php _e( 'Sorry, no posts matched your criteria.' );?></p>
+            <?php endif;?>
         </div>
+
+
+        <!-- <div class="row row-bottom-padded-md">
+            <div class="col-md-3 col-sm-6 col-padding text-center animate-box">
+                <a href="#" class="work image-popup" style="background-image: url(images/img-1.jpg);">
+                    <div class="desc">
+                        <h3>Project Name</h3>
+                        <span>Illustration</span>
+                    </div>
+                </a>
+            </div>
+        </div> -->
     </div>
 
     <div class="fh5co-narrow-content">

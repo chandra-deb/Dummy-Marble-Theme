@@ -106,7 +106,7 @@ get_theme_file_uri(
 
 
             <?php
-$args      = ['post_type' => 'service'];
+$args      = ['post_type' => 'service', 'posts_per_page' => -1];
 $the_query = new WP_Query( $args );
 ?>
             <?php if ( $the_query->have_posts() ): ?>
@@ -168,7 +168,7 @@ $the_query = new WP_Query( $args );
             <div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
                 <div class="blog-entry">
                     <a href="<?php the_permalink()?>
-			                                              " class="blog-img"><?php
+							                                              " class="blog-img"><?php
     the_post_thumbnail( [250, 250], 'class="img-responsive"' )?></a>
                     <div class="desc">
                         <h3><a href="#"><?php the_title()?></a></h3>
